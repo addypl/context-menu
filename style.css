@@ -1,0 +1,48 @@
+body {
+    height: 200vh;
+}
+
+.context-menu {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.context-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.context-menu li {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #666;
+}
+
+.context-menu li:last-child {
+    border-bottom: none;
+}
+
+.context-menu a {
+    display: block;
+    padding: 6px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: all .2s ease-in;
+}
+
+.context-menu li:first-child a {
+    border-radius: 3px 3px 0 0;
+}
+
+.context-menu li:last-child a {
+    border-radius: 0 0 3px 3px;
+}
+
+.context-menu a:hover {
+    background-color: #666;
+}
