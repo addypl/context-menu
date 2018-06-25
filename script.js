@@ -6,9 +6,37 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.button === 2) {
             e.preventDefault();
             e.stopPropagation();
-            menu.style.left = e.pageX + 5 + 'px';
-            menu.style.top = e.pageY + 0 + 'px';
+            let position = countPosition(menu, e.pageX, e.pageY);
+            menu.style.left = position.x + 'px';
+            menu.style.top = position.y + 'px';
         }
+    }
+
+    // functions checks if the element will not be placed outside the window
+
+    function countPosition(el, cursorX, cursorY) {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const elWidth = el.offsetWidth;
+        const elHeight = el.offsetHeight;
+        const position = {
+            x: 0,
+            y: 0
+        };
+
+        if (cursorX + elWidth + 10 > windowWidth) {
+            position.x = cursorX - elWidth - 5;
+        } else {
+            position.x = cursorX + 5;
+        }
+
+        if (cursorY + elHeight + 5 > windowHeight) {
+            position.y = cursorY - elHeight;
+        } else {
+            position.y = cursorY;
+        }
+
+        return position;
     }
 
     function menuHide() {
